@@ -1,6 +1,9 @@
-GEMNAME = ioposrw-0.2
+GEMNAME = ioposrw-0.3
 
-GEMS = $(GEMNAME)-mingw32.gem $(GEMNAME).gem
+GENERIC_NAME = $(GEMNAME)
+X86_MINGW32_NAME = $(GEMNAME)-x86-mingw32
+GEMS = $(X86_MINGW32_NAME).gem $(GENERIC_NAME).gem
+
 
 all: $(GEMS)
 
@@ -13,10 +16,10 @@ test:
 	ruby -I ext -I lib testset/test1.rb
 
 rdoc:
-	rdoc -ve UTF-8 -m README.txt -x doc -x rdoc -x Makefile -x testset -x ext/extconf.rb
+	rdoc -ve UTF-8 -m README.txt README.txt ext/ioposrw.c
 
-$(GEMNAME).gem: ioposrw-generic.gemspec ext/ioposrw.c
-	gem build ioposrw-generic.gemspec
+$(GENERIC_NAME).gem: ioposrw.gemspec ext/ioposrw.c
+	gem build ioposrw.gemspec
 
-$(GEMNAME)-mingw32.gem: ioposrw-mingw32.gemspec ext/ioposrw.c
-	gem build ioposrw-mingw32.gemspec
+$(X86_MINGW32_NAME).gem: ioposrw-x86-mingw32.gemspec ext/ioposrw.c
+	gem build ioposrw-x86-mingw32.gemspec
