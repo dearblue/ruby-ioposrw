@@ -1,4 +1,4 @@
-GEMNAME = ioposrw-0.3
+GEMNAME = ioposrw-0.3.2
 
 GENERIC_NAME = $(GEMNAME)
 X86_MINGW32_NAME = $(GEMNAME)-x86-mingw32

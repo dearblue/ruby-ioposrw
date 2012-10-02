@@ -1,3 +1,5 @@
+/* encoding:utf-8 */
+
 /*
  * ioposrw.c -
  *
@@ -23,6 +25,8 @@
 
 #ifndef RUBY_WIN32_H
 #   include <unistd.h>
+#   include <sys/types.h>
+#   include <sys/stat.h>
 #else
 
 #include <windows.h>
