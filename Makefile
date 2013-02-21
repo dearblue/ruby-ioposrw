@@ -1,4 +1,4 @@
-GEMNAME = ioposrw-0.3.2
+GEMNAME = ioposrw-0.3.3
 
 GENERIC_NAME = $(GEMNAME)
 X86_MINGW32_NAME = $(GEMNAME)-x86-mingw32
@@ -8,7 +8,8 @@ GEMS = $(X86_MINGW32_NAME).gem $(GENERIC_NAME).gem
 all: $(GEMS)
 
 clean:
-	-@ cd ext && make clean
+	-@ cd lib/1.9.1 && make clean
+	-@ cd lib/2.0.0 && make clean
 	-@ rm -f $(GEMS)
 
 test:

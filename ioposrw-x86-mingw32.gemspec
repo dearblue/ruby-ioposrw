@@ -1,7 +1,17 @@
+#!ruby
+#vim: set fileencoding:utf-8
+
+ruby19 = ENV["RUBY19"] or raise "please set env RUBY19"
+ruby20 = ENV["RUBY20"] or raise "please set env RUBY20"
+
 require "fileutils"
 
-FileUtils.mkpath "lib"
-system "cd ext && make && copy /y ioposrw.so ..\\lib\\" or exit $?.exitstatus
+FileUtils.mkpath "lib/1.9.1"
+FileUtils.mkpath "lib/2.0.0"
+
+system "cd lib\\1.9.1 && ( if not exist Makefile ( #{ruby19} ../../ext/extconf.rb -s ) ) && make" or exit $?.exitstatus
+system "cd lib\\2.0.0 && ( if not exist Makefile ( #{ruby20} ../../ext/extconf.rb -s ) ) && make && strip -s *.so" or exit $?.exitstatus
+
 
 Gem::Specification.new do |spec|
     spec.author = "dearblue"
@@ -9,7 +19,7 @@ Gem::Specification.new do |spec|
     spec.homepage = "http://sourceforge.jp/projects/rutsubo/"
 
     spec.name = "ioposrw"
-    spec.version = "0.3.2"
+    spec.version = "0.3.3"
     spec.summary = "Append IO#pread/pwrite methods. These provide similar functionality to the POSIX pread/pwrite."
     spec.license = "2-clause BSD License"
     spec.platform = "x86-mingw32"
@@ -24,7 +34,9 @@ This binary package is for windows only.
         README.txt
         ext/extconf.rb
         ext/ioposrw.c
-        lib/ioposrw.so
+        lib/ioposrw.rb
+        lib/1.9.1/ioposrw.so
+        lib/2.0.0/ioposrw.so
         testset/test1.rb
     )
 

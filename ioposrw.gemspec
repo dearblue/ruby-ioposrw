@@ -4,7 +4,7 @@ Gem::Specification.new do |spec|
     spec.homepage = "http://sourceforge.jp/projects/rutsubo/"
 
     spec.name = "ioposrw"
-    spec.version = "0.3.2"
+    spec.version = "0.3.3"
     spec.summary = "Append IO#pread/pwrite methods. These provide similar functionality to the POSIX pread/pwrite."
     spec.license = "2-clause BSD License"
     spec.description = <<-EOS
