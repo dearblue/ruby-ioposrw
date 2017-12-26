@@ -1,6 +1,6 @@
 # ioposrw 変更履歴
 
-## 0.4
+## 0.4 (平成29年12月26日 火曜日)
 
   * ``IO#pread``/``IO#pwrite`` を ``IO#readat``/``IO#writeat`` に変更
 
