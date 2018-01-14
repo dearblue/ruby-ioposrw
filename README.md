@@ -2,11 +2,17 @@
 
 位置指定IO読み書きメソッド追加拡張ライブラリ
 
-  * Product Name: ioposrw
+  * Package name: [ioposrw](https://rubygems.org/gems/ioposrw)
   * Version: 0.4
-  * Project Page: https://github.com/dearblue/ruby-ioposrw
-  * License: 2-clause BSD License (二条項 BSD ライセンス)
-  * Author: dearblue <dearblue@users.noreply.github.com>
+  * Production quality: TECHNICAL PREVIEW, METASTABLE
+  * License: [BSD-2-clause License](LICENSE)
+  * Author: dearblue (<mailto:dearblue@users.noreply.github.com>)
+  * Project Page: <https://github.com/dearblue/ruby-ioposrw>
+
+* * * *
+
+  * [QUICK REFERENCE](QUICKREF.md)
+  * [HISTORY](HISTORY.ja.md) (In Japanese)
 
 
 ## これは何?
@@ -51,7 +57,7 @@ end
 
 ## 注意事項について
 
-- Windows 上では、``IO#readat / IO#writeat`` を呼び出すとファイルポインタ (IO#pos) が指定位置の次に変更されます (このことは丁度 ``IO#pos=`` と ``IO#read`` を呼び出した後の状態と考えてください)。
+  * Windows 上では、``IO#readat / IO#writeat`` を呼び出すとファイルポインタ (IO#pos) が指定位置の次に変更されます (このことは丁度 ``IO#pos=`` と ``IO#read`` を呼び出した後の状態と考えてください)。
 
     これは Windows 自身に伴う仕様となります。
 
@@ -61,8 +67,3 @@ end
 POSIX システムコールの ``pread(2)`` / ``pwrite(2)`` を中心に実装しました。
 
 Windows 環境では ``OVERRAPPED`` 構造体を与えた ``ReadFile`` / ``WriteFile`` をそれぞれ用いて ``pread`` / ``pwrite`` 関数を構築し、あとは同じです。
-
-
-## ライセンスについて
-
-二条項BSDライセンスの下で取り扱うことができます。
